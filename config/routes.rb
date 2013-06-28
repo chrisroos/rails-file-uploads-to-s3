@@ -1,4 +1,5 @@
 RailsUploadsToS3::Application.routes.draw do
+  root to: 'uploads#new'
   resources :uploads, only: [:new]
   # The priority is based upon order of creation:
   # first created -> highest priority.
