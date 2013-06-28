@@ -1,10 +1,10 @@
-<%= form_tag s3_host, multipart: true, authenticity_token: false %>
+<%= form_tag s3_host, multipart: true, authenticity_token: false, class: 'new_upload' %>
   <%= hidden_field_tag :key, key %>
   <%= hidden_field_tag :AWSAccessKeyId, aws_access_key_id %>
   <%= hidden_field_tag :acl, acl %>
   <%= hidden_field_tag :policy, policy %>
   <%= hidden_field_tag :signature, signature %>
-  <%= hidden_field_tag :success_action_redirect, success_action_redirect %>
+  <%= hidden_field_tag :success_action_status, success_action_status %>
 
   <div>
     <%= label_tag :file, 'File to upload to S3' %><br/>

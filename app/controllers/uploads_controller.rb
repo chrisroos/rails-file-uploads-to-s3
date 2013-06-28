@@ -15,7 +15,7 @@ class UploadsController < ApplicationController
         { 'bucket' =>  AWS_S3_BUCKET },
         [ 'starts-with', '$key', uploads_directory ],
         { 'acl' => acl },
-        { 'success_action_redirect' => success_action_redirect },
+        { 'success_action_status' => success_action_status },
         { 'utf8' => '✓' }
       ]
     }
@@ -33,8 +33,8 @@ class UploadsController < ApplicationController
   def acl; 'private'; end
   helper_method :acl
 
-  def success_action_redirect; url_for; end
-  helper_method :success_action_redirect
+  def success_action_status; '201'; end
+  helper_method :success_action_status
 
   def policy
     @policy ||= Base64.encode64(policy_attributes.to_json).gsub(/\n/, '')
